@@ -36,7 +36,6 @@ resource "aws_instance" "ebs_tf_instance" {
   security_groups = [aws_security_group.ebs_tf_sg.id]
   key_name        = var.key_name
   user_data       = fileexists("install_apache.sh") ? file("install_apache.sh") : null
-  Count           = 2
   tags = {
     name = "EBSTerraformInstance"
   }
